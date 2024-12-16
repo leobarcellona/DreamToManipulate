@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Dream to Manipulate">
+  <meta name="keywords" content="Keywords">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dream to Manipulate: Compositional World Models Empowering Robot Imitation Learning with Imagination
+</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Dream to Manipulate: Compositional World Models Empowering Robot Imitation Learning with Imagination</h1>
+        
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://it.linkedin.com/in/leonardo-barcellona-ab0506196">Leonardo Barcellona</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://zadaianchuk.github.io/">Andrii Zadaianchuk</a><sup>3</sup>,</span>
+            <span class="author-block">
+              <a href="https://davidea97.github.io/">Davide Allegro</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://samuelepapa.github.io/">Samuele Papa</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="http://www.dei.unipd.it/~ghidoni/">Stefano Ghidoni</a><sup>1</sup>,
+            </span>
+             <span class="author-block">
+              <a href="https://www.egavves.com/">Efstratios Gavves</a><sup>3</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Padua,</span>
+            <span class="author-block"><sup>2</sup>Polytechnic University of Turin,</span>
+            <span class="author-block"><sup>3</sup>University of Amsterdam</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!--
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2404.12717"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Soon)</span>
+                  </a>
+              </span>
+
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <video poster="" id="01" autoplay controls muted loop playsinline height="100%">
+                        <source src="./static/videos/DremaPresentation.mp4"
+                                type="video/webm">
+                    </video>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            A <b>world model</b> provides an agent with a representation of its environment, enabling it to predict the <b>causal consequences</b> of its actions. Current world models typically cannot directly and explicitly imitate the actual environment in front of a <b>robot</b>, often resulting in unrealistic behaviors and hallucinations that make them unsuitable for <b>real-world applications</b>. In this paper, we introduce a <b>new paradigm</b> for constructing world models that are explicit representations of the real world and its dynamics. By integrating cutting-edge advances in real-time photorealism with <b>Gaussian Splatting</b> and physics simulators, we propose the first <b>compositional manipulation world model</b>, which we call DreMa. <b>DreMa</b> replicates the observed world and its dynamics, allowing it to <b>imagine</b> novel configurations of objects and <b>predict</b> the future consequences of robot actions. We leverage this capability to generate <b>new data</b> for <b>imitation learning</b> by applying equivariant transformations to a small set of demonstrations. Our evaluations across various settings demonstrate <b>significant improvements</b> in both accuracy and robustness by incrementing actions and object distributions, <b>reducing the data needed</b> to learn a policy and improving the generalization of the agents. As a highlight, we show that a real <b>Franka Emika Panda robot</b>, powered by DreMa ’s imagination, can <b>successfully learn novel physical tasks</b> from just a single example per task variation (one-shot policy learning).
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+  <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Imagination</h2>
+        <!-- Interpolating. -->
+        <div class="content has-text-justified">
+          <p>
+            The robot agent can imagine new configuration of the environment. It can play transformed trajectories in "imagination" to verify that they complete the given task.
+          </p>
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+            <div class="column is-3 has-text-centered">
+          </div>
+          <div class="column interpolation-video-column">
+            <div class="is-centered" id="interpolation-image-wrapper">
+              Loading...
+            </div>
+            <input class="slider is-fullwidth is-large is-info"
+                   id="interpolation-slider"
+                   step="1" min="0" max="100" value="0" type="range">
+          </div>
+          <div class="column is-3 has-text-centered">
+
+          </div>
+        </div>
+        <br/>
+        <!--/ Interpolating. -->
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Real Experiments Examples</h2>
+    <h3 class="title is-4">Prompt: "pick the green block and place it on the blue block"</h3>
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <video id="exp2vid" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/picktest.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+    </div>
+     <h3 class="title is-4">Prompt: "pick the screwdriver and push the green cube"</h3>
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <video id="exp2vid" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/pushtest.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+    </div>
+     <h3 class="title is-4">Prompt: "pick the orange star and place it in the red box"</h3>
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <video id="exp2vid" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/placetest.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+    </div>
+    <!--/ Matting. -->
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Source code of the website from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. If you use, keep this link in the footer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
