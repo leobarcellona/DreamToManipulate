@@ -26,6 +26,37 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  
+ <script>
+    function updateSingleVideo() {
+      var task = document.getElementById("single-menu-tasks").value;
+
+      console.log("single",  task)
+
+      var video = document.getElementById("multi-task-result-video");
+      video.src = "./static/videos/real_experiments/" + 
+                  task +
+                  ".mp4"
+      video.playbackRate = 1.75;
+      video.play();
+    }
+  </script>
+  <script>
+    function updateSingleVideoSim() {
+      var task = document.getElementById("single-menu-tasks-sim").value;
+
+      console.log("single",  task)
+
+      var video = document.getElementById("multi-task-result-video-sim");
+      video.src = "./static/videos/peract_simulation/comparison/" + 
+                  task +
+                  ".mp4"
+      video.playbackRate = 1.75;
+      video.play();
+    }
+  </script>
+
 </head>
 <body>
 
@@ -120,6 +151,76 @@
     </div>
 </section>
 
+<section class="hero is-light is-small">
+
+  <div class="hero-body">
+
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+      <h2 class="title is-3">Improved manipulation policies</h2>
+    </div>
+
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/peract_simulation/close_jar_w55000_s3_succ.mp4"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/peract_simulation/insert_onto_square_peg_w85000_s12_succ.mp4"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/peract_simulation/pick_and_lift_w85000_s0_succ.mp4"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/peract_simulation/pick_up_cup_w80000_s12_succ.mp4"
+                    type="video/webm">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/peract_simulation/place_shape_in_shape_sorter_w65000_s15_succ.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/peract_simulation/place_wine_at_rack_location_w60000_s12_succ.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/peract_simulation/put_groceries_in_cupboard_w95000_s19_succ.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/peract_simulation/slide_block_to_color_target_w50000_s13_succ.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-stack">
+          <video poster="" id="stack" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/peract_simulation/stack_blocks_w80000_s7_succ.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -139,52 +240,91 @@
 </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
 
-    <div class="columns is-centered">
 
-  <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Imagination</h2>
-        <!-- Interpolating. -->
-        <div class="content has-text-justified">
+<section class="section" style="margin:0% 0% 8% 0% ">
+  <div class="container is-max-widescreen">
+    <div class="rows">
+      <div class="rows is-centered ">
+        <div class="row is-full-width">
+          <h2 class="title is-3"><span>DreMa</span></h2>
+
+          <!-- Interpolating. -->
+          
           <p>
-            The robot agent can imagine new configuration of the environment. It can play transformed trajectories in "imagination" to verify that they complete the given task.
+            <strong class="dperact">DreMa</strong> reconstructs 3D scenes using <strong>object-centric Gaussian Splatting</strong>, capturing high-resolution, manipulable representations of environments. These representations are then embedded into a physics simulator (e.g., PyBullet), allowing robots to interact with the imagined world in a physically constrained yet flexible manner. Foundational models further refine the compositional properties of the scene, enabling <strong>controlled object manipulations and scene augmentations</strong>.
           </p>
+          <br>
+          <br>
+          <img src="./static/images/framework.png" class="interpolation-image" alt="Interpolate start reference image.">
+          <br>
+          <br>
+          <h3 class="title is-4">Imitation Learning</h3>
+          <p>
+            <img src="static/images/drema_results_table.png" class="interpolation-image" width="600" align="right" style="margin:0% 8% " alt="Results plot.">
+            One key application of DreMa is in <strong>imitation learning</strong>, where robots learn from demonstrations. By leveraging <strong>equivariant transformations</strong> (such as roto-translation of objects and actions), DreMa generates <strong>new high-quality demonstrations</strong> that enhance policy learning without requiring extensive real-world data collection. This improves generalization while reducing dependence on exhaustive demonstrations.</p>
         </div>
-        <div class="columns is-vcentered interpolation-panel">
-            <div class="column is-3 has-text-centered">
-          </div>
-          <div class="column interpolation-video-column">
-            <div class="is-centered" id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-
       </div>
     </div>
-  </div>
-  </div>
+  </div>  
 </section>
 
+
+
+<section class="hero is-light is-small">
+    <div class="hero-body">
+  <div class="container is-max-widescreen">
+     <div class="rows is-centered ">
+        <div class="row is-full-width">
+          <h2 class="title is-3">Replay given trajectory</h2>
+    
+          
+          <p >DreMa enables the <strong>replay of demonstrations</strong> within the simulation framework, leveraging Gaussian Splatting to recreate past observations with high fidelity. This capability allows robots to revisit previous actions without requiring new physical demonstrations.</p>
+        </div>
+        <div class="row is-full-width">
+          <div class="columns is-centered">
+
+            <div class="column">
+              <div class="content" style="padding: 5%">
+                <video id="exp2vid" autoplay controls muted loop playsinline >
+                  <source src="./static/videos/Simulation_and_rendering.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+    <h2 class="title is-3">Imagination</h2>
+          <!-- Interpolating. -->
+          <div class="content has-text-justified">       
+            
+          </div>
+
+
+    <div class="columns is-vcentered">
+              <div class="column is-3" style="width: 50%">
+                <p>Beyond replaying existing demonstrations, DreMa utilizes simulation to <strong>generate novel configurations</strong> of the environment. By systematically altering object positions and robot actions, it creates diverse training scenarios that help robots generalize their learned behaviors to unseen situations. This capability resemble human <strong>imagination capabilities</strong> , allowing it to explore variations that were not explicitly demonstrated, effectively enhancing adaptability and robustness in new tasks.</p>
+              </div>
+            <div class="column interpolation-video-column">
+              <div class="is-centered" id="interpolation-image-wrapper" style="text-align: center;">
+                Loading...
+              </div>
+              <input class="slider is-fullwidth is-large is-info"
+                     id="interpolation-slider"
+                     step="1" min="0" max="100" value="0" type="range">
+            </div>
+          </div>
+
+</div>
+</div>
+</section>
+
+<!--
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Real Experiments Examples</h2>
     <h3 class="title is-4">Prompt: "pick the green block and place it on the blue block"</h3>
     <div class="columns is-centered">
 
-      <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
           <video id="exp2vid" autoplay controls muted loop playsinline height="100%">
@@ -192,12 +332,11 @@
           </video>
         </div>
       </div>
-      <!--/ Visual Effects. -->
     </div>
      <h3 class="title is-4">Prompt: "pick the screwdriver and push the green cube"</h3>
     <div class="columns is-centered">
 
-      <!-- Visual Effects. -->
+
       <div class="column">
         <div class="content">
           <video id="exp2vid" autoplay controls muted loop playsinline height="100%">
@@ -205,12 +344,10 @@
           </video>
         </div>
       </div>
-      <!--/ Visual Effects. -->
     </div>
      <h3 class="title is-4">Prompt: "pick the orange star and place it in the red box"</h3>
     <div class="columns is-centered">
 
-      <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
           <video id="exp2vid" autoplay controls muted loop playsinline height="100%">
@@ -218,11 +355,68 @@
           </video>
         </div>
       </div>
-      <!--/ Visual Effects. -->
     </div>
-    <!--/ Matting. -->
   </div>
 </section>
+-->
+
+<section class="hero is-small">
+  <div class="hero-body">
+
+    <div class="container">
+    <h2 class="title is-3">Simulation Experiments Examples</h2>
+      <br>
+       <div class="select is-medium">     
+          <select id="single-menu-tasks-sim" onchange="updateSingleVideoSim()">
+          <option value="wine" selected="selected">"Stack the wine bottle to the left of the rack"</option>
+          <option value="close_jar">"Close the red jar"</option>
+          <option value="insert_peg">"Put the ring on the orange spoke"</option>
+          <option value="pick_cup">"Pick up the lime cup"</option>
+          <option value="put_groceries">"Put the chocolate jello in the cupboard"</option>
+          <option value="slide_block">"Slide the block to the pink target"</option>
+          <option value="sort_shape">"Put the star in the shape sorter"</option>
+          <option value="lift">"Pick up the black block and lift it up to the target"</option>
+          <option value="stack_blocks">"Stack 2 red blocks"</option>
+          </select>
+        </div>
+        <br>
+        <br>
+
+        <video id="multi-task-result-video-sim" muted="muted" autoplay="autoplay" loop="" width="100%" >
+          <source src="./static/videos/peract_simulation/comparison/wine.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+          <h2 class="title is-3">Real Experiments Examples</h2>
+          <br>
+       <div class="select is-medium">     
+
+          <select id="single-menu-tasks" onchange="updateSingleVideo()">
+          <option value="object" selected="selected">Prompt: "pick the stapler and place it in the box"</option>
+          <option value="cube">Prompt: "pick the green block and place it on the blue block"</option>
+          <option value="slide">Prompt: "pick the screwdriver and push the green cube"</option>
+          <option value="shape">Prompt: "pick the orange star and place it in the red box"</option>
+          <option value="erase">Prompt: "pick the eraser star and erase the yellow spot"</option>
+          </select>
+        </div>
+        <br>
+        <br>
+
+        <video id="multi-task-result-video" muted="muted" autoplay="autoplay" loop="" width="100%" >
+          <source src="./static/videos/real_experiments/object.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <footer class="footer">
   <div class="container">
@@ -242,4 +436,6 @@
 </footer>
 
 </body>
+
+
 </html>
